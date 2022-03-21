@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="canvas" width="800" height="400" style="background:black"></canvas>
+
+
+<script src="drawHand.js"></script>
+<script src="drawTime.js"></script>
+<script src="drawNumbers.js"></script>
+<script src="drawFace.js"></script>
+<script src="drawClock.js"></script>
+<script src="cleanTime.js"></script>
+
+<script>
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var radius = canvas.height / 2;
+ctx.translate(radius, radius); //Remap the (0,0) position (of the drawing object) to the center of the canvas
+radius = radius * 0.90 //Reduce the clock radius (to 90%) to draw the clock well inside the canvas
+drawClock();
+setInterval(drawClock, 40);
+
+ctx.font = "50px Georgia";
+ctx.fillText(cleanTime(), 400, 0);
+
+</script>
+</body>
+</html>
